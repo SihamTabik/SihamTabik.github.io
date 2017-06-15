@@ -31,7 +31,13 @@ If you wish to supply other JPEG images, you may do so by editing the <xmp> --im
 
 If you download the model data to a different directory, you will need to point <xmp>--model_dir</xmp> to the directory used.<br>
 
-  <li><h2>Retrain the CNN on my own dataset</h2></li>
+  <li><h2>Retrain GoogLeNet Final Layer for New Categories</h2></li>
+
+       &bull; cd  ~/tensorflow/lib/python2.7/site-packages/tensorflow/examples/
+       &bull; mkdir image_retraining
+       &bull; curl -O https://raw.githubusercontent.com/tensorflow/tensorflow/r1.1/tensorflow/examples/image_retraining/retrain.py
+       &bull; python retrain.py {add your args here}
+
 </ol>      
 
 
