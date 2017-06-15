@@ -31,7 +31,7 @@ If you wish to supply other JPEG images, you may do so by editing the <xmp> --im
 
 If you download the model data to a different directory, you will need to point <xmp>--model_dir</xmp> to the directory used.<br>
 
-  <li><h2>Retrain GoogLeNet Final Layer for New Categories</h2></li>
+  <li><h2>Retrain GoogLeNet Final Layer on a New dataset</h2></li>
  Download new dataset <br>
        <xmp> cd ~ </xmp>
        <xmp> curl -O http://download.tensorflow.org/example_images/flower_photos.tgz </xmp>
@@ -41,7 +41,9 @@ If you download the model data to a different directory, you will need to point 
        <xmp> mkdir image_retraining </xmp>
        <xmp> curl -O https://raw.githubusercontent.com/tensorflow/tensorflow/r1.1/tensorflow/examples/image_retraining/retrain.py 
        <xmp> python retrain.py --image_dir ~/flower_photos {add your args here} </xmp>
-
+This script loads the pre-trained GoogLeNet model, removes the old top FC layer, and trains a new one on the flower photos
+ you've downloaded. None of the flower species were in the original ImageNet classes the full network was trained on. 
+ The magic of transfer learning is that lower layers that have been trained to distinguish between some objects can be reused for many recognition tasks without any alteration.
 </ol>      
 
 
