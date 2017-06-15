@@ -39,12 +39,21 @@ If you download the model data to a different directory, you will need to point 
  Download retrain.py   <br>   
        <xmp> cd  ~/tensorflow/lib/python2.7/site-packages/tensorflow/examples/ </xmp>
        <xmp> mkdir image_retraining </xmp>
-       <xmp> curl -O https://raw.githubusercontent.com/tensorflow/tensorflow/r1.1/tensorflow/examples/image_retraining/retrain.py 
-       <xmp> python retrain.py --image_dir ~/flower_photos {add your args here} </xmp>
+       <xmp> curl -O https://raw.githubusercontent.com/tensorflow/tensorflow/r1.1/tensorflow/examples/image_retraining/retrain.py </xmp>
+ Have a look at retrain.py and costumize where you want to download the GoogLeNet, also called Inception model, bottelneck, . By default the model is downloaded in /tmp. 
+        <xmp> python retrain.py --image_dir ~/flower_photos {add your args here} </xmp>
 This script loads the pre-trained GoogLeNet model, removes the old top FC layer, and trains a new one on the flower photos
  you've downloaded. None of the flower species were in the original ImageNet classes the full network was trained on. 
  The magic of transfer learning is that lower layers that have been trained to distinguish between some objects can be reused for many recognition tasks without any alteration.
-</ol>      
+<br>
+        2017-06-15 13:50:09.216886: Step 3999: Train accuracy = 95.0%<br>
+2017-06-15 13:50:09.216944: Step 3999: Cross entropy = 0.186286<br>
+2017-06-15 13:50:09.261670: Step 3999: Validation accuracy = 93.0% (N=100)<br>
+Final test accuracy = 93.7% (N=378)<br>
+Converted 2 variables to const ops.<br>
+
+        
+        </ol>      
 
 
 
