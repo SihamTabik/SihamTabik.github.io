@@ -23,9 +23,16 @@ Email: siham AT ugr.es<br>
 	
   &bull; TensorFlow can be installed using four different mecanisms. We will the one recomenaded by the TF team, which is the virtualenv mecanism. <br>
 	
-	<ol>
+<ol>
+  <li>Install pip and virtualenv by issuing the following command:<br>
+
+<xmp>  sudo apt-get install python-pip python-dev python-virtualenv</xmp>
+  <li> Create a virtualenv environment by issuing the following command:<br>
+
+<xmp> virtualenv --system-site-packages targetDirectory </xmp>
+The targetDirectory specifies the top of the virtualenv tree. Our instructions assume that targetDirectory is ~/tensorflow, but you may choose any directory.
   <li>
-  <\ol>
+</ol> 
 	
   <li><h2>My Hello World! example</h2></li>
       &bull; Read carefully convolutional.py
