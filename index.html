@@ -33,18 +33,26 @@ If you download the model data to a different directory, you will need to point 
 
   <li><h2>Finetuning GoogLeNet Final Layer on a New dataset</h2></li>
  Download new dataset <br>
-       <table>
-	<tr  bgcolor="#777777"><td>
-	<xmp> cd ~ </xmp>
+ <table>
+   <tr  bgcolor="#FFFFCC"><td>
+       <xmp> cd ~ </xmp>
        <xmp> curl -O http://download.tensorflow.org/example_images/flower_photos.tgz </xmp>
-       <xmp> tar xzf flower_photos.tgz </xmp> </font></td>
-	</tr>
+       <xmp> tar xzf flower_photos.tgz </xmp> </font>
+
+	 </td>
+   </tr>
 </table>
  Download retrain.py   <br>   
+<table>
+   <tr  bgcolor="#FFFFCC"><td>	
        <xmp> cd  ~/tensorflow/lib/python2.7/site-packages/tensorflow/examples/ </xmp>
        <xmp> mkdir image_retraining </xmp>
        <xmp> curl -O https://raw.githubusercontent.com/tensorflow/tensorflow/r1.1/tensorflow/examples/image_retraining/retrain.py </xmp>
- Have a look at retrain.py and costumize where you want to download the GoogLeNet, also called Inception model, bottelneck, . By default the model is downloaded in /tmp. 
+ 	 </td>
+   </tr>
+</table>
+
+	   Have a look at retrain.py and costumize where you want to download the GoogLeNet, also called Inception model, bottelneck, . By default the model is downloaded in /tmp. 
         <xmp> python retrain.py --image_dir ~/flower_photos {add your args here} </xmp>
 This script loads the pre-trained GoogLeNet model, removes the old top FC layer, and trains a new one on the flower photos
  you've downloaded. None of the flower species were in the original ImageNet classes the full network was trained on. 
