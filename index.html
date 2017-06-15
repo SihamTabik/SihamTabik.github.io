@@ -53,21 +53,24 @@ If you download the model data to a different directory, you will need to point 
 </table>
 
 	   Have a look at retrain.py and costumize where you want to download the GoogLeNet, also called Inception model, bottelneck, . By default the model is downloaded in /tmp. 
+<table>
         <tr  bgcolor="#CCFFFF"><td>	
 	<xmp> python retrain.py --image_dir ~/flower_photos {add your args here} </xmp>
 	</td>
    </tr>
 </table>	
-This script loads the pre-trained GoogLeNet model, removes the old top FC layer, and trains a new one on the flower photos
- you've downloaded. None of the flower species were in the original ImageNet classes the full network was trained on. 
- The magic of transfer learning is that lower layers that have been trained to distinguish between some objects can be reused for many recognition tasks without any alteration.
+This script 1) loads the pre-trained GoogLeNet model, 2) removes the old top FC layer, also called Bottleneck, and 3) trains a new one
+on the flower photos you've downloaded. None of the flower species were in the original ImageNet classes the full network was
+trained on.  The magic of transfer learning, also called fine-tuning, is that lower layers that have been trained to distinguish 
+	between some objects can be reused for many recognition tasks without any alteration.
 <br>
-        2017-06-15 13:50:09.216886: Step 3999: Train accuracy = 95.0%<br>
+<!--
+2017-06-15 13:50:09.216886: Step 3999: Train accuracy = 95.0%<br>
 2017-06-15 13:50:09.216944: Step 3999: Cross entropy = 0.186286<br>
 2017-06-15 13:50:09.261670: Step 3999: Validation accuracy = 93.0% (N=100)<br>
 Final test accuracy = 93.7% (N=378)<br>
 Converted 2 variables to const ops.<br>
-
+-->
         
         </ol>      
 
