@@ -44,30 +44,30 @@ The targetDirectory specifies the top of the virtualenv tree. Our instructions a
    <tr  bgcolor="#CCFFFF"><td>	
  <xmp>  source ~/tensorflow/bin/activate # bash, sh, ksh, or zsh</xmp>
  <xmp>  source ~/tensorflow/bin/activate.csh  # csh or tcsh</xmp>
-	  	   	    </td>
+	</td>
    </tr>
 </table> 
 The preceding source command should change your prompt to the following:<br>
-<table>
-   <tr  bgcolor="#CCFFFF"><td>	
+<table><tr  bgcolor="#CCFFFF"><td>	
  <xmp>(tensorflow)$ </xmp>
-	   	  	   	    </td>
-   </tr>
-</table> 
+	</td> </tr></table>
+	  
 <li>	  Issue one of the following commands to install TensorFlow in the active virtualenv environment:<br>
 <br>If you have 1) NVIDIA® GPU with Compute Capability 3.0 or higher and 2) cuDNN v5.1 v3 or greater then you can install  tensorflow-gpu, prepared to run on NVIDIA GPUs.<br>	
- 
+
+<table><tr  bgcolor="#CCFFFF"><td>	
 <xmp>(tensorflow)$ pip install --upgrade tensorflow-gpu  # for Python 2.7 and GPU</xmp>
- <xmp>(tensorflow)$ pip3 install --upgrade tensorflow-gpu # for Python 3.n and GPU</xmp>
-	   	    </td>
-   </tr>
-</table>
+<xmp>(tensorflow)$ pip3 install --upgrade tensorflow-gpu # for Python 3.n and GPU</xmp>
+</td></tr></table>
 	
 	If you don't have GPUs with the mentioned characteristics then:<br>
-	
+<table><tr  bgcolor="#CCFFFF"><td>		
  <xmp>(tensorflow)$ pip install --upgrade tensorflow      # for Python 2.7</xmp>
 <xmp> (tensorflow)$ pip3 install --upgrade tensorflow     # for Python 3.n</xmp>
- </ol> 
+
+</td> </tr></table>
+
+	</ol> 
 	
   <li><h2>My Hello World! example</h2></li>
       &bull; Read carefully convolutional.py
