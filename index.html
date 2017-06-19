@@ -15,8 +15,9 @@ Email: siham AT ugr.es<br>
 
 <br>
 
-<h1> Hands-on lab: CNNs with TensorFlow </h1>    
+<h2> Hands-on lab: Building CNNs based-classifiers with TensorFlow </h2>    
 <ol>
+  <!-- Install -->	
   <li><h2> Install TensorFlow with virtual Python environment </h2></li>
   TensorFlow can be installed in Ubuntu, Mac and Windows (not sure about its stability under Windows OS).<br><br>
   
@@ -60,8 +61,33 @@ If you don't have GPUs with the mentioned characteristics then:<br>
 <table><tr  bgcolor="#CCFFFF"><td>		
 <xmp> (tensorflow)$ pip install --upgrade tensorflow      # for Python 2.7</xmp>
 <xmp> (tensorflow)$ pip3 install --upgrade tensorflow     # for Python 3.n</xmp>
-
 </td> </tr></table>
+	
+<!-- Check installation is OK -->	
+<li> Check the installation has been done successfully <br>
+Invoke python from your shell as follows: <br>
+
+<table><tr  bgcolor="#CCFFFF"><td>		
+<xmp> (tensorflow)$ python </xmp>
+</td> </tr></table>
+Enter the following short program inside the python interactive shell: <br>
+	
+<table><tr  bgcolor="#CCFFFF"><td>		
+<xmp># Python</xmp>
+<xmp>import tensorflow as tf</xmp>
+<xmp>hello = tf.constant('Hello, TensorFlow!')</xmp>
+<xmp>sess = tf.Session()</xmp>
+<xmp>print(sess.run(hello))</xmp>
+</td> </tr></table>
+	
+If the system outputs the following, then you are ready to begin writing TensorFlow programs:<br>
+<table><tr  bgcolor="#CCFFFF"><td>		
+<xmp>
+	Hello, TensorFlow!
+</xmp>
+</td> </tr></table>
+
+
 </ol> 
 	
 <li><h2>My Hello World! example</h2></li>
