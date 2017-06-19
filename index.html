@@ -12,28 +12,9 @@ School of Informatics<br>
 University of Granada<br>
 Email: siham AT ugr.es<br>
 
- <script> 
-    function show() { 
-        if(document.getElementById('benefits').style.display=='none') { 
-            document.getElementById('benefits').style.display='block'; 
-        } 
-        return false;
-    } 
-    function hide() { 
-        if(document.getElementById('benefits').style.display=='block') { 
-            document.getElementById('benefits').style.display='none'; 
-        } 
-        return false;
-    }   
-</script> 
 
-
- <div id="opener"><a href="#1" name="1" onclick="return show();">open here</a></div> 
-    <div id="benefits" style="display:none;">bla bla bla bla ... some input in here plus the close button 
-           <div id="upbutton"><a href="#1" onclick="return hide();">close here </a></div> 
-    </div>   
-
-	............................<br>
+<--! Define a func-->
+<--! 
  <script> 
 	function showhide()
      {
@@ -47,20 +28,16 @@ Email: siham AT ugr.es<br>
      }
 </script> 
 	
-	<div id="newpost">
-
-This div will be show and hide on button click</div>
+<div id="newpost"> This div will be show and hide on button click</div>
 <button id="button" onclick="showhide()">Click Me</button>
 	
-	
-	
-	.............................
-	
+-->		
 <br>
 
 <h2> Hands-on lab: Building CNNs based-classifiers with TensorFlow </h2>    
 <ol>
   <!-- Install -->	
+	
   <li><h2> Install TensorFlow with virtual Python environment </h2></li>
   TensorFlow can be installed in Ubuntu, Mac and Windows (not sure about its stability under Windows OS).<br><br>
   
