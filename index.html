@@ -118,15 +118,20 @@ If the system outputs the following, then you are ready to begin writing TensorF
 </ol> 
 	
 <li><h2>My "Hello World!" example</h2></li>
-To get familiar with CNNs, consider the MNIST daabase, which is used as "Hello World!" example in Deep CNNs. <br> The       
-&bull; Let's train LeNet-5-like convolutional Network on MNIST dabase. <br>
-&bull; First go to the mnist floder.<br>	
+To get more familiar with CNNs, let's start with the MNIST database, which is used as the "Hello World!" example in Deep CNNs. <br> 
+The first successful CNN in MNIST classification is called LeNet. The implementation of LeNet-5-like can be found in this folder. <br>
+
+	
 <table><tr  bgcolor="#CCFFFF"><td>	
-<xmp> 	tensorflow/lib/python2.7/site-packages/tensorflow/models/image/mnist/</xmp>
+<xmp>cd ./tensorflow/lib/python2.7/site-packages/tensorflow/models/image/mnist/</xmp>
 </td> </tr></table>
 	
-&bull;	Read carefully convolutional.py
-      
+Have a look at how LeNet is implemented in tensorflow:
+	
+<table><tr  bgcolor="#CCFFFF"><td>	
+<xmp>vi  convolutional.py  
+</xmp>
+</td> </tr></table>	
 <li><h2>Classify Imagenet</h2></li>
  
 <xmp> cd models/tutorials/image/imagenet</xmp>
