@@ -150,10 +150,17 @@ This script 1) loads the pre-trained GoogLeNet model, 2) removes the old top FC 
 on the flower photos you've downloaded. None of the flower species were in the original ImageNet classes the full network was
 trained on.  The magic of transfer learning, also called fine-tuning, is that lower layers that have been trained to distinguish 
 	between some objects can be reused for many recognition tasks without any alteration.
-<br>
-Use this python to test your retrained model<br>	
+<br><br>
+
+To test the retrained model use this script<br>	
 	
 <a href="label_images.py">label_images.py</a><br>	
+<table>
+        <tr  bgcolor="#CCFFFF"><td>	
+	<xmp>python label_images.py  $TEST_IMAGE_PATH  </xmp>
+	</td>
+   </tr>
+</table>
 	
 <!--
 2017-06-15 13:50:09.216886: Step 3999: Train accuracy = 95.0%<br>
