@@ -94,11 +94,11 @@ The implementation of LeNet-5-like CNN can be found in this folder. <br>
 <xmp>cd ./tensorflow/lib/python2.7/site-packages/tensorflow/models/image/mnist/</xmp>
 </td> </tr></table>
 	
-Have a look at how LeNet is implemented in tensorflow:
+Have a look at how LeNet is implemented in tensorflow then run as follows:
 	
 <table><tr  bgcolor="#CCFFFF"><td>	
-<xmp>vi  convolutional.py  
-</xmp>
+<xmp> python   convolutional.py # train on CPU/GPU depending on the installation</xmp>
+<xmp>CUDA_VISIBLE_DEVICES=0,1 python   convolutional.py # train on selected GPUs with identifiers 0 and 1</xmp>
 </td> </tr></table>	
 <li><h2>Classify Imagenet</h2></li>
  
