@@ -62,24 +62,27 @@ If you don't have GPUs with the mentioned characteristics then:<br>
 
 <!-- Check installation is OK -->	
 <li> Check the location where pip installed tensorflow packages <br>
+<table><tr  bgcolor="#CCFFFF"><td>	
 pip show tensorflow <br>
+</td> </tr></table>
 	
 <!-- Check installation is OK -->	
 <li> Check the installation has been done successfully <br>
-Invoke python from your shell as follows: <br>
-
-<table><tr  bgcolor="#CCFFFF"><td>		
-<xmp> (tensorflow)$ python </xmp>
-</td> </tr></table>
-Enter the following short program inside the python interactive shell: <br>
+Save the following short program as hello.py: <br>
 	
 <table><tr  bgcolor="#CCFFFF"><td>		
-<xmp># Python</xmp>
 <xmp>import tensorflow as tf</xmp>
 <xmp>hello = tf.constant('Hello, TensorFlow!')</xmp>
 <xmp>sess = tf.Session()</xmp>
 <xmp>print(sess.run(hello))</xmp>
 </td> </tr></table>
+
+Run this commandline in your shell as follows: <br>
+
+<table><tr  bgcolor="#CCFFFF"><td>		
+<xmp> (tensorflow)$ python hello.py</xmp>
+</td> </tr></table>
+	
 	
 If the system outputs the following, then you are ready to begin writing TensorFlow programs:<br>
 <table><tr  bgcolor="#CCFFFF"><td>		
