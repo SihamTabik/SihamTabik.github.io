@@ -65,20 +65,22 @@ pip show tensorflow <br>
 	
 <!-- Check installation is OK -->	
 <li> Check the installation has been done successfully <br>
-Invoke python from your shell as follows: <br>
 
-<table><tr  bgcolor="#CCFFFF"><td>		
-<xmp> (tensorflow)$ python </xmp>
-</td> </tr></table>
-Enter the following short program inside the python interactive shell: <br>
+Save the following short program as hello.py: <br>
 	
 <table><tr  bgcolor="#CCFFFF"><td>		
-<xmp># Python</xmp>
+<!--<xmp># Python</xmp>-->
 <xmp>import tensorflow as tf</xmp>
 <xmp>hello = tf.constant('Hello, TensorFlow!')</xmp>
 <xmp>sess = tf.Session()</xmp>
 <xmp>print(sess.run(hello))</xmp>
 </td> </tr></table>
+
+Execute this commandline from your shell as follows: <br>
+
+<table><tr  bgcolor="#CCFFFF"><td>		
+<xmp> (tensorflow)$ python hello.py </xmp>
+</td> </tr></table>	
 	
 If the system outputs the following, then you are ready to begin writing TensorFlow programs:<br>
 <table><tr  bgcolor="#CCFFFF"><td>		
