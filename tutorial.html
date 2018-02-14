@@ -10,6 +10,7 @@
 <li>First CNN classifcation model	
 <li>Classify Imagenet		
 <li>Retrain on New dataset
+<li>Important terminology in DL
 </ol>
 	
 <ol>
@@ -181,7 +182,29 @@ To test the retrained model use this script<br>
 Final test accuracy = 93.7% (N=378)<br>
 Converted 2 variables to const ops.<br>
 -->
-        
+<li><h2>Important terminology in DL</h2></li>	
+	
+<h1> batch</h1>: Convolutional Neural Networks (CNNs) do not process the images one-at-a-time. To increase their throughput, CNNs
+process the data in batches. Suppose a CNN that is trained on  RGB (3-channel) images that are 256x256 pixels. 
+	A single image can be represented by a 3 x 256 x 256 matrix. If you set your batch size to be 10, 
+	that means you’re concatenating 10 images together into a 10 x 3 x 256 x 256 matrix. In practice, you’ll create 
+	batches of data that are randomly selected from your training set. 
+	This is the ‘stochastic’ part of stochastic gradient descent (SGD). During a single forward and backward pass of 
+	training, the network will update its parameters according to what’s in the batch. This is why the selection has to be 
+	random - if you feed in a batch of only dog images, the CNN will become a little more eager to classify images as 
+	dogs after that training iteration.
+
+Tuning the batch size is one of the aspects of getting training right - if your batch size is too small, then there will be a 
+	lot of variance within a batch, and your training loss curve will bounce around a lot. But if it’s too large, your GPU will run out of memory to hold it, or training will progress too slowly to see if it’s the optimization is diverging early on.
+
+I think you’ll also find the answers to this question helpful:
+
+Intuitively, how does mini-batch size affect the performance of (stochastic) gradient descent?	
+	
+	
+	
+	
+	
         </ol>      
 
 
