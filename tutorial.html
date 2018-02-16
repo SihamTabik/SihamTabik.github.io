@@ -191,7 +191,7 @@ Converted 2 variables to const ops.<br>
 -->
 <li><h2>Important terminology in DL</h2></li>	
 	
-<h1> batch size</h1> Convolutional Neural Networks (CNNs) do not process the images one-at-a-time. To increase their throughput, CNNs
+<h3> batch size</h3> Convolutional Neural Networks (CNNs) do not process the images one-at-a-time. To increase their throughput, CNNs
 process the data in batches. Suppose a CNN that is trained on  RGB (3-channel) images that are 256x256 pixels. 
 	A single image can be represented by a 3 x 256 x 256 matrix. If you set your batch size to be 10, 
 	that means you’re concatenating 10 images together into a 10 x 3 x 256 x 256 matrix. In practice, you’ll create 
@@ -207,13 +207,14 @@ Tuning the batch size is one of the aspects of getting training right - if your 
 	
 	
 	
-<h1> Sigmoid and ReLU activation functions</h1>	
-<h1> Droput</h1>During the learning phase, the connections with the next layer can be limited to a subset of neurons to
+<h3> Sigmoid and ReLU activation functions</h3>	
+<h3> Droput</h3>During the learning phase, the connections with the next layer can be limited to a subset of neurons to
 reduce the weights to be updated, this learning optimization technique is called dropout. The dropout
 is therefore a technique used to decrease the overfitting within a network with many layers and/or
 neurons. In general, the dropout layers are positioned after the layers that possess a large amount of
 trainable neurons.<br>	
-        </ol>      
+This list is not updated yet!!!
+	</ol>      
 
 
 
