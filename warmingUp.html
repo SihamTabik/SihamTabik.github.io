@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+</head>
+
+<body>
+
+
+<h1>Very important</h1>	
+Before starting to read and copy/paste parts of the code we should ask our selves the next questions<br>
+<ol>
+<li>How many layers do I have in my NN? 
+<li>What is the type of each layer? 
+<li>What is the rank and shape of the input and output of each layer?<br> 
+Please, apply basic matricial operations.
+<li>  
+</ol>  
+<h1>Build and Compare Different Neural Networks models</h1>	
+
+We will focus on the specific problem of the classification of handwritten digits.
+
+<ol>  
+<li><h2>Build a One Layer Neural Network classifier</h2>	
+This simple NN is build using one hidden softmax layer. This layer will have 10 neurons and uses softmax function as tansfer function.  
+<table style="width:50%">
+  <tr>
+    <th>Layer</th>
+    <th>Number of neurons</th> 
+    <th>Ativation funtion</th>
+  </tr>
+  <tr>
+    <td>One</td>
+    <td>10</td>
+    <td>softmax</td>
+  </tr>
+</table>
+
+<br>
+<table><tr  bgcolor="#CCFFFF"><td>		
+<xmp>import tensorflow as tf</xmp>
+<xmp>from tensorflow.examples.tutorials.mnist import input_data</xmp>
+<xmp>import numpy as np</xmp>
+
+<xmp>batch_size = 100</xmp>
+<xmp>learning_rate = 0.5</xmp>
+<xmp>training_epochs = 10</xmp>
+<xmp>mnist = input_data.read_data_sets("data", one_hot=True)</xmp>
+<xmp>      </xmp>
+
+<font color="grey">#First, we create the necessary tensors</font> <br>
+<!<font color="grey">#The set of input images of size 28x28 pixels each one</font>>
+<xmp>X = tf.placeholder(tf.float32, [None, 784], name="input")</xmp>
+<!<font color="grey">#The output of of the network, a tensor of 10 elements</font>>
+<xmp>Y_ = tf.placeholder(tf.float32, [None, 10])</xmp>
+<xmp>W = tf.Variable(tf.zeros([784, 10]))</xmp>
+<xmp>b = tf.Variable(tf.zeros([10]))</xmp>
+<xmp>XX = tf.reshape(X, [-1, 784])</xmp>
+
+<xmp>    </xmp>
+<font color="grey">#Then, we define our flowgraph</font><br>
+<xmp>Y = tf.nn.softmax(tf.matmul(XX, W) + b, name="output")</xmp>
+<xmp>cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=Y_, logits=Y))</xmp>
+<xmp>correct_prediction = tf.equal(tf.argmax(Y, 1), tf.argmax(Y_, 1))</xmp>
+<xmp>accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</xmp>
+<xmp>train_step = tf.train.GradientDescentOptimizer(0.005).minimize(cross_entropy)</xmp>
+<xmp>    </xmp>
+
+<font color="grey">#Finally, we crearte a session to run our flowgraph</font><br>
+
+<xmp>with tf.Session() as sess:</xmp>
+<xmp>	sess.run(tf.global_variables_initializer())</xmp>
+<xmp>	for epoch in range(training_epochs):</xmp>
+<xmp>		batch_count = int(mnist.train.num_examples/batch_size)</xmp>
+<xmp>		for i in range(batch_count):</xmp>
+<xmp>			batch_x, batch_y = mnist.train.next_batch(batch_size)</xmp>
+<xmp>			sess.run([train_step],feed_dict={X: batch_x,Y_: batch_y})</xmp>
+<xmp>		print("Epoch: ", epoch)</xmp>
+<xmp>    print("Accuracy: ", accuracy.eval(feed_dict={X: mnist.test.images, Y_: mnist.test.labels}))</xmp>
+<xmp>    print("done")</xmp>
+
+
+</td> </tr></table> <br>
+<li><h2>Build Four layers Neural Network classifier</h2>
+
+<!reLU produce mejores resultados que el signoid
+Dropout es una tecnica que se usa para reduce el overfitting, se suele colocar detras de las capas que tienen muchos weights por actualizar>
+<table style="width:50%">
+  <tr>
+    <th>Layer</th>
+    <th>Number of neurons</th> 
+    <th>Ativation funtion</th>
+  </tr>
+  <tr>
+    <td>First</td>
+    <td>200</td>
+    <td>ReLU</td>
+  </tr>
+    <tr>
+    <td>Second</td>
+    <td>100</td>
+    <td>ReLU</td>
+  </tr>
+    <tr>
+    <td>Second</td>
+    <td>60</td>
+    <td>ReLU</td>
+  </tr>
+    <tr>
+    <td>Second</td>
+    <td>30</td>
+    <td>ReLU</td>
+  </tr>
+   <tr>
+    <td>Second</td>
+    <td>10</td>
+    <td>ReLU</td>
+  </tr> 
+
+ </table><br>
+<table><tr  bgcolor="#CCFFFF"><td>		
+<xmp>L = 200</xmp>
+<xmp>M = 100</xmp>
+<xmp>N = 60</xmp>
+<xmp>O = 30</xmp>
+<xmp> </xmp>
+<xmp>W1 = tf.Variable(tf.truncated_normal([784, L], stddev=0.1))</xmp>
+<xmp>B1 = tf.Variable(tf.ones([L])/10)</xmp>
+<xmp>W2 = tf.Variable(tf.truncated_normal([L, M], stddev=0.1))</xmp>
+<xmp>B2 = tf.Variable(tf.ones([M])/10)</xmp>
+<xmp>W3 = tf.Variable(tf.truncated_normal([M, N], stddev=0.1))</xmp>
+<xmp>B3 = tf.Variable(tf.ones([N])/10)</xmp>
+<xmp>W4 = tf.Variable(tf.truncated_normal([N, O], stddev=0.1))</xmp>
+<xmp>B4 = tf.Variable(tf.ones([O])/10)</xmp>
+<xmp>W5 = tf.Variable(tf.truncated_normal([O, 10], stddev=0.1))</xmp>
+<xmp>B5 = tf.Variable(tf.zeros([10]))</xmp>
+<xmp> </xmp>
+<xmp>Y1 = tf.nn.relu(tf.matmul(XX, W1) + B1)</xmp>
+<xmp>Y2 = tf.nn.relu(tf.matmul(Y1, W2) + B2)</xmp>
+<xmp>Y3 = tf.nn.relu(tf.matmul(Y2, W3) + B3)</xmp>
+<xmp>Y4 = tf.nn.relu(tf.matmul(Y3, W4) + B4)</xmp>
+<xmp>Ylogits = tf.matmul(Y4, W5) + B5</xmp>
+<xmp>Y = tf.nn.softmax(Ylogits)</xmp>
+
+
+<xmp>cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=Y_, logits=Y))*100</xmp>
+</td> </tr></table> <br>
+The accuracy of this model can be  improved by including the droput optimization after each ReLU layer and by tuning the network parameters.
+<br>
+<li><h2>Build a Five layer Convolutional Neural Network classifier</h2>
+</table><br>
+<table><tr  bgcolor="#CCFFFF"><td>		
+
+<xmp>import tensorflow as tf
+<xmp>import numpy as np
+<xmp>from tensorflow.examples.tutorials.mnist import input_data
+
+<xmp>batch_size = 128</xmp>
+<xmp>test_size = 256</xmp>
+<xmp>img_size = 28</xmp>
+<xmp>num_classes = 10</xmp>
+
+<xmp>def init_weights(shape):</xmp>
+<xmp>        return tf.Variable(tf.random_normal(shape, stddev=0.01))</xmp>
+
+<xmp>def model(X, w, w2, w3, w4, w_o, p_keep_conv, p_keep_hidden):</xmp>
+<xmp>        conv1 = tf.nn.conv2d(X, w,strides=[1, 1, 1, 1],padding='SAME')</xmp>
+<xmp>        conv1_a = tf.nn.relu(conv1)</xmp>
+<xmp>        conv1 = tf.nn.max_pool(conv1_a, ksize=[1, 2, 2, 1],strides=[1, 2, 2, 1],padding='SAME')</xmp>
+<xmp>        conv1 = tf.nn.dropout(conv1, p_keep_conv)</xmp>
+<xmp>        conv2 = tf.nn.conv2d(conv1, w2,strides=[1, 1, 1, 1],padding='SAME')</xmp>
+<xmp>        conv2_a = tf.nn.relu(conv2)</xmp>
+<xmp>        conv2 = tf.nn.max_pool(conv2_a, ksize=[1, 2, 2, 1],strides=[1, 2, 2, 1],padding='SAME')</xmp>
+<xmp>        conv2 = tf.nn.dropout(conv2, p_keep_conv)</xmp>
+<xmp>        conv3=tf.nn.conv2d(conv2, w3,strides=[1, 1, 1, 1],padding='SAME')</xmp>
+<xmp>        conv3 = tf.nn.relu(conv3)</xmp>
+<xmp>        FC_layer = tf.nn.max_pool(conv3, ksize=[1, 2, 2, 1],strides=[1, 2, 2, 1],padding='SAME')</xmp>
+<xmp>        FC_layer = tf.reshape(FC_layer, [-1, w4.get_shape().as_list()[0]])</xmp>
+<xmp>        FC_layer = tf.nn.dropout(FC_layer, p_keep_conv)</xmp>
+<xmp>        output_layer = tf.nn.relu(tf.matmul(FC_layer, w4))</xmp>
+<xmp>        output_layer = tf.nn.dropout(output_layer, p_keep_hidden)</xmp>
+<xmp>        result = tf.matmul(output_layer, w_o)</xmp>
+<xmp>        return result</xmp>
+
+<xmp>mnist = input_data.read_data_sets("MNIST_data", one_hot=True)</xmp>
+<xmp>trX, trY, teX, teY = mnist.train.images, mnist.train.labels, mnist.test.images, mnist.test.labels</xmp>
+<xmp>trX = trX.reshape(-1, img_size, img_size, 1)</xmp>
+<xmp>teX = teX.reshape(-1, img_size, img_size, 1)</xmp>
+<xmp># 28x28x1 input img</xmp>
+<xmp># 28x28x1 input img</xmp>
+<xmp>X = tf.placeholder("float", [None, img_size, img_size, 1])</xmp>
+<xmp>Y = tf.placeholder("float", [None, num_classes])</xmp>
+<xmp>w = init_weights([3, 3, 1, 32])</xmp>
+
+<xmp>w2 = init_weights([3, 3, 32, 64])</xmp>
+<xmp>w3 = init_weights([3, 3, 64, 128])</xmp>
+<xmp>w4 = init_weights([128 *4 * 4, 625])</xmp>
+<xmp>w_o = init_weights([625,num_classes])</xmp>
+
+
+<xmp>p_keep_conv = tf.placeholder("float")</xmp>
+<xmp>p_keep_hidden = tf.placeholder("float")</xmp>
+<xmp>py_x = model(X, w, w2, w3, w4, w_o, p_keep_conv, p_keep_hidden)</xmp>
+<xmp>Y_ = tf.nn.softmax_cross_entropy_with_logits(logits=py_x, labels=Y)</xmp>
+
+<xmp>cost = tf.reduce_mean(Y_)</xmp>
+
+<xmp>optimizer = tf.train.RMSPropOptimizer(0.001, 0.9).minimize(cost)</xmp>
+
+<xmp>predict_op = tf.argmax(py_x, 1)</xmp>
+
+<xmp>with tf.Session() as sess:</xmp>
+<xmp>        init_g = tf.global_variables_initializer()</xmp>
+<xmp>        sess.run(init_g)</xmp>
+<xmp>        for i in range(100):</xmp>
+<xmp>                training_batch =zip(range(0, len(trX), batch_size), range(batch_size, len(trX)+1, batch_size))</xmp>
+<xmp>                for start, end in training_batch:</xmp>
+<xmp>                        sess.run(optimizer , feed_dict={X: trX[start:end], Y: trY[start:end],</xmp>
+<xmp>                                p_keep_conv: 0.8, p_keep_hidden: 0.5})</xmp>
+<xmp>                test_indices = np.arange(len(teX)) # Get A Test Batch</xmp>
+<xmp>                np.random.shuffle(test_indices)</xmp>
+<xmp>                test_indices = test_indices[0:test_size]</xmp>
+
+<xmp>                print(i, np.mean(np.argmax(teY[test_indices], axis=1) ==</xmp>
+<xmp>                sess.run</xmp>
+<xmp>                (predict_op,</xmp>
+<xmp>                feed_dict={X: teX[test_indices],</xmp>
+<xmp>                Y: teY[test_indices],</xmp>
+<xmp>                p_keep_conv: 1.0,</xmp>
+<xmp>                p_keep_hidden: 1.0})))</xmp>
+
+</td> </tr></table> <br>
+
+</ol>
+
+</body></html>
