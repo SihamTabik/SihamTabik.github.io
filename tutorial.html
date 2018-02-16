@@ -200,14 +200,15 @@ process the data in batches. Suppose a CNN that is trained on  RGB (3-channel) i
 Tuning the batch size is one of the aspects of getting training right - if your batch size is too small, then there will be a 
 	lot of variance within a batch, and your training loss curve will bounce around a lot. But if it’s too large, your GPU will run out of memory to hold it, or training will progress too slowly to see if it’s the optimization is diverging early on.
 
-I think you’ll also find the answers to this question helpful:
-
-Intuitively, how does mini-batch size affect the performance of (stochastic) gradient descent?	
 	
 	
 	
-	
-	
+<h1> Sigmoid and ReLU activation functions</h1>	
+<h1> Droput</h1>During the learning phase, the connections with the next layer can be limited to a subset of neurons to
+reduce the weights to be updated, this learning optimization technique is called dropout. The dropout
+is therefore a technique used to decrease the overfitting within a network with many layers and/or
+neurons. In general, the dropout layers are positioned after the layers that possess a large amount of
+trainable neurons.<br>	
         </ol>      
 
 
