@@ -212,7 +212,9 @@ Tuning the batch size is one of the aspects of getting training right - if your 
 <h3> Sigmoid and ReLU activation functions</h3>	
 When constructing Artificial Neural Network (ANN) models, one of the primary considerations is choosing activation functions for 
 hidden and output layers that are differentiable. This is because calculating the backpropagated error signal that is used to
-	determine ANN parameter updates requires the gradient of the activation function gradient.
+	determine ANN parameter updates requires the gradient of the activation function gradient. Three of the most commonly-used activation
+	functions used in ANNs are the identity function, the logistic sigmoid function, and the hyperbolic tangent function. 
+	 
 	
 <h3> Droput</h3>During the learning phase, the connections with the next layer can be limited to a subset of neurons to
 reduce the weights to be updated, this learning optimization technique is called dropout. The dropout
